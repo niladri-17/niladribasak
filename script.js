@@ -50,11 +50,13 @@ $(document).ready(function(){
 
     // owl carousel script
     $('.carousel').owlCarousel({
-        strings: ["Programmer", "Web Developer", "Designer"],
+        // strings: ["Programmer", "Web Developer", "Designer"],
         margin: 20,
         loop: true,
         autoplay: true,
-        autoplayTimeOut: 2000,
+        autoplayTimeout: 1200,
+        // dots:true,
+        // nav:true,
         autoplayHoverPause: true,
         responsive: {
             0:{
@@ -65,10 +67,10 @@ $(document).ready(function(){
                 items: 2,
                 nav: false
             },
-            1000:{
-                items: 3,
-                nav: false
-            }
+            // 1000:{
+            //     items: 3,
+            //     nav: false
+            // }
         }
     });
 });
