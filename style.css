@@ -374,16 +374,16 @@ section .title::after{
 .skills-content .right .js::before{
     width: 50%;
 }
-.skills-content .right .php::before{
+.skills-content .right .react::before{
     width: 70%;
 }
 .skills-content .right .mysql::before{
-    width: 80%;
+    width: 60%;
 }
 
 /* teams section styling */
 .teams .title::after{
-    content: "who with me";
+    content: "what i did";
 }
 .teams .carousel .card{
     background: #222;
