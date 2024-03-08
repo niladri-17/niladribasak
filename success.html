@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your form is successfully submitted</title>
     <style>
+        html{
+            background-color: #111;
+        }
       .success-message {
         text-align: center;
         max-width: 500px;
@@ -72,7 +75,7 @@
       </svg>
       <h1 class="success-message__title">Message Received</h1>
       <div class="success-message__content">
-        <p>We will respond in approximately 34 minutes</p>
+        <p>Will respond in approximately 12 hours</p>
       </div>
     </div>
     <script>
@@ -111,11 +114,11 @@
       }
 
       document.addEventListener("click", function () {
-        if (document.body.classList.contains("active")) {
-          document.body.classList.remove("active");
-          svg.setProgress(0);
-          return;
-        }
+        // if (document.body.classList.contains("active")) {
+        //   document.body.classList.remove("active");
+        //   svg.setProgress(0);
+        //   return;
+        // }
         document.body.classList.add("active");
         svg.setProgress(1);
       });
