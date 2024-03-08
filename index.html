@@ -270,10 +270,15 @@
             </div>
           </div>
           <div class="column right">
-            <form name="contact" method="post" data-netlify="true" onSubmit="submit"
-            data-netlify-honeypot="bot-field" action="/success/"
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit="submit"
+              data-netlify-honeypot="bot-field"
+              action="/success/"
             >
-            <input type="bot-field" style="display: none;">
+              <input type="bot-field" style="display: none" />
               <div class="fields">
                 <div class="field name">
                   <input type="text" name="name" placeholder="Your Name" />
@@ -282,7 +287,10 @@
                   <input type="email" name="email" placeholder="Your Email" />
                 </div>
                 <div class="field textarea">
-                  <textarea placeholder="Your Message"></textarea>
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                  ></textarea>
                 </div>
               </div>
               <div class="button-area">
