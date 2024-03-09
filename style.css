@@ -496,7 +496,7 @@ section .title::after {
   margin-bottom: 15px;
 }
 .contact .right form .textarea {
-  height: 200px;
+  height: 130px;
   width: 100%;
 }
 .contact .right form .name {
