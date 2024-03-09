@@ -1,6 +1,6 @@
-if (location.pathname.endsWith('.html')) {
-    history.replaceState({}, '', location.pathname.slice(0, -5));
-}
+// if (location.pathname.endsWith('.html')) {
+//     history.replaceState({}, '', location.pathname.slice(0, -5));
+// }
 
 $(document).ready(function(){
     $(window).scroll(function(){
