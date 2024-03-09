@@ -490,14 +490,13 @@ section .title::after {
   display: flex;
   flex-direction: column;
 }
-.contact .right form .field,
-.contact .right form .fields .field {
+.contact .right form .field {
   height: 45px;
   width: 100%;
   margin-bottom: 15px;
 }
 .contact .right form .textarea {
-  height: 150px;
+  height: 200px;
   width: 100%;
 }
 .contact .right form .name {
@@ -520,7 +519,7 @@ section .title::after {
   border-color: #b3b3b3;
 }
 .contact .right form .textarea textarea {
-  /* height: 50px; */
+  height: 100%;
   padding-top: 10px;
   resize: none;
 }
@@ -673,14 +672,14 @@ footer span a:hover {
   }
   /* .contact .right form .fields {
     flex-direction: column;
-  } */
+  }
   .contact .right form .name,
   .contact .right form .email {
     margin: 0;
   }
   .right form .error-box {
     width: 150px;
-  }
+  } */
   .scroll-up-btn {
     right: 15px;
     bottom: 15px;
