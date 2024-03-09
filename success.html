@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="3 ; url=index.html"> -->
     <title>Your form is successfully submitted</title>
     <style>
-        html{
-            background-color: #111;
-        }
+      html {
+        background-color: #111;
+      }
       .success-message {
         text-align: center;
         max-width: 500px;
@@ -76,9 +77,45 @@
       <h1 class="success-message__title">Message Received</h1>
       <div class="success-message__content">
         <p>Will respond in approximately 12 hours</p>
+        <p>
+          You will be redirected back to the main page in
+          <span id="countdown">3</span> seconds...
+        </p>
       </div>
     </div>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const countdownElement = document.getElementById("countdown");
+
+        // Function to start countdown and redirect
+        function startCountdownAndRedirect(seconds) {
+          let countdown = seconds;
+          countdownElement.textContent = countdown;
+
+          // Update countdown every second
+          const countdownInterval = setInterval(function () {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            // If countdown reaches 0, redirect to main page
+            if (countdown <= 0) {
+              clearInterval(countdownInterval);
+              redirectToMainPage();
+            }
+          }, 1000);
+        }
+
+        // Start countdown and redirect after 2 seconds
+        setTimeout(function () {
+          startCountdownAndRedirect(3); // Change the countdown duration as needed
+        }, 1000); // 1 seconds delay
+
+        // Function to redirect to the main page
+        function redirectToMainPage() {
+          window.location.href = "index.html"; // Replace 'index.html' with your main page URL
+        }
+      });
+
       function PathLoader(el) {
         this.el = el;
         this.strokeLength = el.getTotalLength();
