@@ -33,11 +33,13 @@ html {
 section {
   padding: 100px 0;
 }
+
 .max-width {
   max-width: 1300px;
   padding: 0 80px;
   margin: auto;
 }
+
 .about,
 .services,
 .skills,
@@ -46,6 +48,7 @@ section {
 footer {
   font-family: "Raleway", sans-serif;
 }
+
 .about .about-content,
 .services .serv-content,
 .skills .skills-content,
@@ -55,6 +58,7 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
+
 section .title {
   position: relative;
   text-align: center;
@@ -64,6 +68,7 @@ section .title {
   padding-bottom: 20px;
   font-family: "Ubuntu", sans-serif;
 }
+
 section .title::before {
   content: "";
   position: absolute;
@@ -74,6 +79,7 @@ section .title::before {
   background: #111;
   transform: translateX(-50%);
 }
+
 section .title::after {
   position: absolute;
   bottom: -8px;
@@ -93,28 +99,42 @@ section .title::after {
   padding: 30px 0;
   font-family: "Ubuntu", sans-serif;
   transition: all 0.3s ease;
+  background-color: #070508;
 }
+
 .navbar.sticky {
   padding: 15px 0;
   background: #6e6e6e;
 }
+
 .navbar .max-width {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.niladri {
+  position:absolute;
+  left: 80px;
+  transform: translateY(-200px);
+}
+
 .navbar .logo a {
   color: #fff;
   font-size: 35px;
   font-weight: 600;
 }
+
 .navbar .logo a span {
   color: #6e6e6e;
   transition: all 0.3s ease;
 }
+
 .navbar.sticky .logo a span {
   color: #fff;
 }
+
 .navbar .menu li {
   list-style: none;
   display: inline-block;
@@ -172,13 +192,13 @@ section .title::after {
 /* home section styling */
 .home {
   display: flex;
-  background: url(https://img.freepik.com/free-vector/dark-low-poly-background_1048-7971.jpg?size=626&ext=jpg)
-    no-repeat center;
+  background: url(./images/dark.jpg) no-repeat center;
   height: 100vh;
   color: #fff;
   min-height: 500px;
   background-size: cover;
-  background-attachment: fixed;
+  background-position: left;
+  /* background-attachment: fixed; */
   font-family: "Ubuntu", sans-serif;
 }
 .home .max-width {
@@ -568,7 +588,7 @@ footer span a:hover {
   text-decoration: underline;
 }
 
-.social-icons{
+.social-icons {
   padding: 10px 0;
   display: flex;
   align-items: center;
@@ -576,7 +596,7 @@ footer span a:hover {
   gap: 20px;
 }
 
-.social-icons a{
+.social-icons a {
   text-decoration: none;
   display: inline-block;
   height: 20px;
@@ -600,7 +620,11 @@ footer span a:hover {
   .max-width {
     padding: 0 50px;
   }
+  .niladri{
+    left: 50px;;
+  }
 }
+
 @media (max-width: 947px) {
   .menu-btn {
     display: block;
@@ -644,6 +668,7 @@ footer span a:hover {
   .max-width {
     max-width: 930px;
   }
+
   .about .about-content .column {
     width: 100%;
   }
@@ -669,6 +694,9 @@ footer span a:hover {
 @media (max-width: 690px) {
   .max-width {
     padding: 0 23px;
+  }
+  .niladri{
+    left:23px;
   }
   .home .home-content .text-2 {
     font-size: 60px;
