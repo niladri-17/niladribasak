@@ -36,8 +36,6 @@ html {
 ::-webkit-scrollbar-track {
   padding: 2px !important;
   background: rgba(202, 202, 202, 0.704);
-  padding: 2px !important;
-  background: rgba(202, 202, 202, 0.704);
 }
 ::-webkit-scrollbar-thumb {
   background: #00f2ff;
@@ -198,20 +196,16 @@ section .title::after {
   color: #fff;
   font-size: 18px;
   font-weight: 500;
+  margin-left: 25px;
   transition: color 0.3s ease;
 }
 
 .navbar .menu li a:hover {
-  color: #06e8f8;
+  color: #6e6e6e;
 }
 
 .navbar.sticky .menu li a:hover {
-  color: #06e8f8;
-}
-
-.navbar .menu li:hover,
-.navbar.sticky .menu li:hover {
-  transform: scale(1.3);
+  color: #fff;
 }
 
 /* menu btn styling */
