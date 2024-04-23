@@ -36,6 +36,8 @@ html {
 ::-webkit-scrollbar-track {
   padding: 2px !important;
   background: rgba(202, 202, 202, 0.704);
+  padding: 2px !important;
+  background: rgba(202, 202, 202, 0.704);
 }
 ::-webkit-scrollbar-thumb {
   background: #00f2ff;
