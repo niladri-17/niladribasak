@@ -197,7 +197,7 @@ $(document).ready(function () {
       trigger: "h1",
       start: "bottom 120",
       end: "bottom 70.8",
-      markers: true,
+  //  markers: true,
       scrub: 1,
     },
   });
