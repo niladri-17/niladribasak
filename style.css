@@ -34,11 +34,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #cacaca;
+  padding: 2px !important;
+  background: rgba(202, 202, 202, 0.704);
 }
 ::-webkit-scrollbar-thumb {
   background: #00f2ff;
   border-radius: 10px;
+  margin: 2px;
+  box-shadow: 4px 4px 5px rgb(47, 47, 47) , -4px -4px 5px rgb(47, 47, 47) , -4px 4px 5px rgb(47, 47, 47) , 4px -4px 5px rgb(47, 47, 47);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -168,13 +171,15 @@ section .title::after {
   font-size: 18px;
   font-weight: 500;
   margin-left: 25px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .navbar .menu li a:hover {
-  color: #6e6e6e;
+  color: #0095ff;
+  transform: scale(1.2) !important;
 }
 .navbar.sticky .menu li a:hover {
   color: #fff;
+  transform: scale(1.2) !important;
 }
 
 /* menu btn styling */
