@@ -10,23 +10,40 @@
   font-family: "Raleway", sans-serif;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
+} */
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #00f2ff;
+  opacity: 0;
+  z-index: 10000;
+  user-select: none;
+  pointer-events: none;
+  mix-blend-mode: difference;
 }
 
 /* custom scroll bar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #cacaca;
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #00f2ff;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  border: 2px solid #118287;
+  cursor: grab;
 }
 
 /* all similar content styling codes */
@@ -112,12 +129,14 @@ section .title::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 
-.niladri {
-  position:absolute;
+.logo.niladri {
+  position: absolute;
   left: 80px;
-  transform: translateY(-200px);
+  transform: translateY(50px);
+  opacity: 0;
 }
 
 .navbar .logo a {
@@ -133,6 +152,10 @@ section .title::after {
 
 .navbar.sticky .logo a span {
   color: #fff;
+}
+
+.logo.niladri a {
+  color: #00f2ff;
 }
 
 .navbar .menu li {
@@ -192,7 +215,7 @@ section .title::after {
 /* home section styling */
 .home {
   display: flex;
-  background: url(./images/dark.jpg) no-repeat center;
+  background: url(./images/dark4.jpg) no-repeat center;
   height: 100vh;
   color: #fff;
   min-height: 500px;
@@ -620,8 +643,8 @@ footer span a:hover {
   .max-width {
     padding: 0 50px;
   }
-  .niladri{
-    left: 50px;;
+  .logo.niladri {
+    left: 50px;
   }
 }
 
@@ -630,7 +653,7 @@ footer span a:hover {
     display: block;
     z-index: 999;
   }
-  .menu-btn i.active:before {
+  .menu-btn i.active::before {
     content: "\f00d";
   }
   .navbar .menu {
@@ -680,6 +703,11 @@ footer span a:hover {
   .about .about-content .right {
     flex: 100%;
   }
+  .services .serv-content {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
   .services .serv-content .card {
     width: calc(50% - 10px);
     margin-bottom: 20px;
@@ -695,8 +723,8 @@ footer span a:hover {
   .max-width {
     padding: 0 23px;
   }
-  .niladri{
-    left:23px;
+  .logo.niladri {
+    left: 23px;
   }
   .home .home-content .text-2 {
     font-size: 60px;
