@@ -10,9 +10,9 @@
   font-family: "Raleway", sans-serif;
 }
 
-/* html {
+html {
   scroll-behavior: smooth;
-} */
+}
 
 .cursor-follower {
   position: fixed;
@@ -34,16 +34,41 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #cacaca;
+  padding: 2px !important;
+  background: rgba(202, 202, 202, 0.704);
 }
 ::-webkit-scrollbar-thumb {
   background: #00f2ff;
   border-radius: 10px;
+  margin: 2px;
+  box-shadow: 4px 4px 5px rgb(47, 47, 47), -4px -4px 5px rgb(47, 47, 47),
+    -4px 4px 5px rgb(47, 47, 47), 4px -4px 5px rgb(47, 47, 47);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   border: 2px solid #118287;
   cursor: grab;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  height: 20vh;
+  width: 20vh;
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0091ff;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: inset 3px 3px 10px #032022,
+    inset -3px -3px 10px #021719;
 }
 
 /* all similar content styling codes */
@@ -161,20 +186,30 @@ section .title::after {
 .navbar .menu li {
   list-style: none;
   display: inline-block;
+  transition: all 0.3s ease;
+  margin-left: 25px;
+  cursor: pointer;
 }
 .navbar .menu li a {
+  width: 100%;
   display: block;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
-  margin-left: 25px;
   transition: color 0.3s ease;
 }
+
 .navbar .menu li a:hover {
-  color: #6e6e6e;
+  color: #06e8f8;
 }
+
 .navbar.sticky .menu li a:hover {
-  color: #fff;
+  color: #06e8f8;
+}
+
+.navbar .menu li:hover,
+.navbar.sticky .menu li:hover {
+  transform: scale(1.3);
 }
 
 /* menu btn styling */
@@ -214,6 +249,7 @@ section .title::after {
 
 /* home section styling */
 .home {
+  position: relative;
   display: flex;
   background: url(./images/dark4.jpg) no-repeat center;
   height: 100vh;
@@ -741,6 +777,17 @@ footer span a:hover {
 }
 
 @media (max-width: 500px) {
+  .circle{
+    height: 13vh;
+    width: 13vh;
+    font-size: 1rem;
+    left: 50%;
+    bottom: 10%;
+    /* transform: translateX(-80%); */
+  }
+  a.circle{
+    transform: translateX(-50%);
+  }
   .home .home-content .text-2 {
     font-size: 50px;
   }
