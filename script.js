@@ -1,6 +1,3 @@
-// if (location.pathname.endsWith('.html')) {
-//     history.replaceState({}, '', location.pathname.slice(0, -5));
-// }
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,10 +82,6 @@ var hoverMouse = function ($el) {
   });
 };
 
-// gsap.from(".circle",{
-//     backgroundColor
-// })
-
 function init() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -131,8 +124,21 @@ $(document).ready(function () {
   // init();
 
   window.onbeforeunload = function () {
-    this.scrollTo(0, 0);
-  };
+    window.scrollTo(0, 0);
+    console.log("hello");
+  }
+  
+  // function applyBeforeunload() {
+  //   $(window).on('beforeunload', function() {
+  //     $('body').hide();
+  //     $(window).scrollTop(0);
+  //   });
+  // }
+  // applyBeforeunload();
+  // $(document).on('click', '[/index/]', function() {
+  //   $(window).off('beforeunload');
+  //   setTimeout(applyBeforeunload, 1000);
+  // });
 
   $(window).scroll(function () {
     // sticky navbar on scroll script
@@ -217,6 +223,27 @@ $(document).ready(function () {
     },
   });
 
+  const circleAnim = gsap.timeline({ repeat: -1 });
+  circleAnim.to(".circle", {
+    y: `-2rem`,
+    duration: 0.5,
+    yoyo: true,
+  });
+
+  circleAnim.to(".circle", {
+    y: 0,
+    duration: 0.3,
+    yoyo: true,
+  });
+
+  function pauseAnimation() {
+    circleAnim.pause();
+  }
+
+  function resumeAnimation() {
+    circleAnim.resume();
+  }
+
   const isTouchDevice = "ontouchstart" in window;
 
   const createCursorFollower = () => {
@@ -231,7 +258,7 @@ $(document).ready(function () {
         target?.closest("a") || target?.closest("button");
       // GSAP config
       gsap.to($el, {
-        x: x-1.7,
+        x: x - 1.7,
         y: y + 6,
         duration: 0.7,
         ease: "power4", // More easing options here: https://gsap.com/docs/v3/Eases/
@@ -252,6 +279,14 @@ $(document).ready(function () {
   if (!isTouchDevice) {
     createCursorFollower();
     hoverMouse($(".circle"));
+
+    document
+      .querySelector(".circle")
+      .addEventListener("mouseenter", pauseAnimation);
+
+    document
+      .querySelector(".circle")
+      .addEventListener("mouseleave", resumeAnimation);
   }
 
   gsap.from(".logo.welcome , a.menu-btn", {
@@ -275,39 +310,9 @@ $(document).ready(function () {
     repeat: -1,
     duration: 0.4,
     yoyo: true,
-    ease: "power4.out"
+    ease: "power4.out",
   });
 
-  const circleAnim = gsap.timeline({ repeat: -1 });
-  circleAnim.to(".circle", {
-    y: `-2rem`,
-    duration: 0.5,
-    yoyo: true,
-  });
-
-  circleAnim.to(".circle", {
-    y: 0,
-    duration: 0.3,
-    yoyo: true,
-  });
-
-  function pauseAnimation() {
-    circleAnim.pause();
-}
-
-  function resumeAnimation() {
-    circleAnim.resume();
-}
-
-if (!isTouchDevice){
-  document
-    .querySelector(".circle")
-    .addEventListener("mouseenter", pauseAnimation);
-
-  document
-    .querySelector(".circle")
-    .addEventListener("mouseleave", resumeAnimation);
-}
   // navHeight : '70.8px';
   let tl1 = gsap.timeline({
     scrollTrigger: {
@@ -323,7 +328,6 @@ if (!isTouchDevice){
     "h1",
     {
       y: -50,
-      // duration: 2,
     },
     "anim"
   );
@@ -332,7 +336,6 @@ if (!isTouchDevice){
     ".logo.welcome",
     {
       y: 0,
-      // duration: 2,
     },
     "anim"
   );
@@ -340,7 +343,6 @@ if (!isTouchDevice){
     ".logo.welcome",
     {
       y: -50,
-      // duration: 2,
     },
     "anim"
   );
@@ -350,22 +352,7 @@ if (!isTouchDevice){
     {
       y: 0,
       opacity: 1,
-      // duration: 2,
     },
     "anim"
   );
-
-  // var tl2 = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".services",
-  //     scroller: "main",
-  //     markers: true,
-  //     start: "top 40%",
-  //     end: "top 40%",
-  //     scrub: 3,
-  //   },
-  // });
-  // tl2.from(".services .card", {
-  //   x: 100,
-  // });
 });
