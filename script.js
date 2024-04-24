@@ -231,8 +231,8 @@ $(document).ready(function () {
         target?.closest("a") || target?.closest("button");
       // GSAP config
       gsap.to($el, {
-        x: x,
-        y: y + 5,
+        x: x-1.7,
+        y: y + 6,
         duration: 0.7,
         ease: "power4", // More easing options here: https://gsap.com/docs/v3/Eases/
         opacity: isTargetLinkOrBtn ? 0.6 : 1,
