@@ -58,17 +58,18 @@ html {
   height: 20vh;
   width: 20vh;
   font-size: 1.8rem;
-  color: white;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(89, 0, 255);
+  background-color: #00f2ff;
   padding: 10px 20px;
   cursor: pointer;
-  box-shadow: inset 3px 3px 10px rgb(18, 18, 87),
-    inset -3px -3px 10px rgb(7, 7, 45);
+  box-shadow: inset 3px 3px 10px #011111,
+    inset -3px -3px 10px #032223;
 }
 
 /* all similar content styling codes */
@@ -200,11 +201,11 @@ section .title::after {
 }
 
 .navbar .menu li a:hover {
-  color: #06e8f8;
+  color: #00f2ff;
 }
 
 .navbar.sticky .menu li a:hover {
-  color: #06e8f8;
+  color: #00f2ff;
 }
 
 .navbar .menu li:hover,
