@@ -1,4 +1,3 @@
-
 gsap.registerPlugin(ScrollTrigger);
 
 var hoverMouse = function ($el) {
@@ -123,21 +122,13 @@ function init() {
 $(document).ready(function () {
   // init();
 
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-    console.log("hello");
-  }
-  
-  // function applyBeforeunload() {
-  //   $(window).on('beforeunload', function() {
-  //     $('body').hide();
-  //     $(window).scrollTop(0);
-  //   });
-  // }
-  // applyBeforeunload();
-  // $(document).on('click', '[/index/]', function() {
-  //   $(window).off('beforeunload');
-  //   setTimeout(applyBeforeunload, 1000);
+  // window.onbeforeunload = function () {
+  //  window.scrollTo(0, 0);
+  // };
+
+  //   window.addEventListener('beforeunload', function () {
+  //     // Scroll to the top of the page
+  //     window.scrollTo(0, 0);
   // });
 
   $(window).scroll(function () {
@@ -236,6 +227,8 @@ $(document).ready(function () {
     yoyo: true,
   });
 
+  const circleElem = document.querySelector(".circle");
+
   function pauseAnimation() {
     circleAnim.pause();
   }
@@ -280,22 +273,27 @@ $(document).ready(function () {
     createCursorFollower();
     hoverMouse($(".circle"));
 
-    document
-      .querySelector(".circle")
-      .addEventListener("mouseenter", pauseAnimation);
-
-    document
-      .querySelector(".circle")
-      .addEventListener("mouseleave", resumeAnimation);
+    circleElem.addEventListener("mouseenter", pauseAnimation);
+    circleElem.addEventListener("mouseleave", resumeAnimation);
   }
 
-  gsap.from(".logo.welcome , a.menu-btn", {
+  gsap.from(" a.menu-btn", {
     y: -100,
     duration: 0.5,
     delay: 0.3,
     opacity: 0,
     stagger: 0.1,
   });
+
+  if (window.scrollY < 200) {
+    gsap.from(".logo.welcome", {
+      y: -100,
+      duration: 0.5,
+      delay: 0.3,
+      opacity: 0,
+      stagger: 0.1,
+    });
+  }
 
   gsap.from("h1", {
     x: -200,
@@ -313,8 +311,10 @@ $(document).ready(function () {
     ease: "power4.out",
   });
 
+  //welcome to niladri switch animation in navbar
+
   // navHeight : '70.8px';
-  let tl1 = gsap.timeline({
+  const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: "h1",
       start: "bottom 120",
@@ -332,13 +332,6 @@ $(document).ready(function () {
     "anim"
   );
 
-  tl1.from(
-    ".logo.welcome",
-    {
-      y: 0,
-    },
-    "anim"
-  );
   tl1.to(
     ".logo.welcome",
     {
@@ -355,4 +348,12 @@ $(document).ready(function () {
     },
     "anim"
   );
+
+  const skillLogoAnim = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+  skillLogoAnim.to(".skill-logo1", { rotation: 360, duration: 1 });
+  skillLogoAnim.to(".skill-logo2", { rotation: -360, duration: 1, delay: 0.5 });
+
+  const sassAnim = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+  sassAnim.from(".skill-logo3", { scale: 0, rotation: -360, duration: 2 });
+  sassAnim.to(".skill-logo3", {scale: 0,rotation: -360, duration: 2, delay: 1});
 });

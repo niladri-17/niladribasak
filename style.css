@@ -68,8 +68,7 @@ html {
   background-color: #00f2ff;
   padding: 10px 20px;
   cursor: pointer;
-  box-shadow: inset 3px 3px 10px #011111,
-    inset -3px -3px 10px #032223;
+  box-shadow: inset 3px 3px 10px #011111, inset -3px -3px 10px #032223;
 }
 
 /* all similar content styling codes */
@@ -424,47 +423,16 @@ section .title::after {
   color: #6e6e6e;
   background: none;
 }
-.skills .skills-content .right .bars {
-  margin-bottom: 15px;
-}
-.skills .skills-content .right .info {
+
+.skills .skills-content .right {
   display: flex;
-  margin-bottom: 5px;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
-.skills .skills-content .right span {
-  font-weight: 500;
-  font-size: 18px;
-}
-.skills .skills-content .right .line {
-  height: 5px;
-  width: 100%;
-  background: lightgrey;
-  position: relative;
-}
-.skills .skills-content .right .line::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: #6e6e6e;
-}
-.skills-content .right .html::before {
-  width: 90%;
-}
-.skills-content .right .css::before {
-  width: 60%;
-}
-.skills-content .right .js::before {
-  width: 50%;
-}
-.skills-content .right .react::before {
-  width: 70%;
-}
-.skills-content .right .mysql::before {
-  width: 70%;
+
+.skills .skills-content .right img {
+  height: 5rem;
 }
 
 /* projects section styling */
@@ -785,7 +753,6 @@ footer span a:hover {
     background-color: #17aab2;
     left: 50%;
     bottom: 10%;
-    /* transform: translateX(-80%); */
   }
   a.circle {
     transform: translateX(-50%);
@@ -800,16 +767,9 @@ footer span a:hover {
   .skills .skills-content .left .text {
     font-size: 19px;
   }
-  /* .contact .right form .fields {
-    flex-direction: column;
+  .skills .skills-content .right img {
+    height: 4rem;
   }
-  .contact .right form .name,
-  .contact .right form .email {
-    margin: 0;
-  }
-  .right form .error-box {
-    width: 150px;
-  } */
   .scroll-up-btn {
     right: 15px;
     bottom: 15px;
