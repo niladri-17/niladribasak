@@ -433,6 +433,12 @@ section .title::after {
 
 .skills .skills-content .right img {
   height: 5rem;
+  cursor: pointer;
+  transition: scale 0.2s ease-in-out;
+}
+
+.skills .skills-content .right img:hover{
+  scale:1.2 !important;
 }
 
 /* projects section styling */
@@ -769,6 +775,9 @@ footer span a:hover {
   }
   .skills .skills-content .right img {
     height: 4rem;
+  }
+  .skills .skills-content .right img:hover{
+    scale:1;
   }
   .scroll-up-btn {
     right: 15px;

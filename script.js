@@ -122,7 +122,6 @@ function init() {
 $(document).ready(function () {
   // init();
 
-
   $(window).scroll(function () {
     // sticky navbar on scroll script
     if (this.scrollY > 20) {
@@ -207,14 +206,18 @@ $(document).ready(function () {
   });
 
   const circleAnim = gsap.timeline({ repeat: -1 });
-  circleAnim.to(".circle", {y: `-2rem`, duration: 0.5, yoyo: true,});
-  circleAnim.to(".circle", {y: 0, duration: 0.3, yoyo: true,});
+  circleAnim.to(".circle", { y: `-2rem`, duration: 0.5, yoyo: true });
+  circleAnim.to(".circle", { y: 0, duration: 0.3, yoyo: true });
 
   const circleElem = document.querySelector(".circle");
 
-  function pauseCircleAnimation() {circleAnim.pause();}
+  function pauseCircleAnimation() {
+    circleAnim.pause();
+  }
 
-  function resumeCircleAnimation() {circleAnim.resume();}
+  function resumeCircleAnimation() {
+    circleAnim.resume();
+  }
 
   const isTouchDevice = "ontouchstart" in window;
 
@@ -257,19 +260,26 @@ $(document).ready(function () {
   }
 
   const navAnim = () => {
-    return { y: -100, duration: 0.5, delay: 0.3, opacity: 0, stagger: 0.1 }
-  }
+    return { y: -100, duration: 0.5, delay: 0.3, opacity: 0, stagger: 0.1 };
+  };
 
   if (window.scrollY < 200) gsap.from(".logo.welcome", navAnim());
   gsap.from(" a.menu-btn", navAnim());
 
 
+ // Animation for the h1
   gsap.from("h1", { x: -200, duration: 1, delay: 0.8, opacity: 0 });
 
-  gsap.to(".scroll-up-btn", { y: -100, repeat: -1, duration: 0.4, yoyo: true, ease: "power4.out" });
+  gsap.to(".scroll-up-btn", {
+    y: -100,
+    repeat: -1,
+    duration: 0.4,
+    yoyo: true,
+    ease: "power4.out",
+  });
+
 
   //welcome to niladri switch animation in navbar
-
   // navHeight : '70.8px';
   const tl1 = gsap.timeline({
     scrollTrigger: {
@@ -281,42 +291,54 @@ $(document).ready(function () {
     },
   });
 
-  tl1.to("h1",{y: -50,},"anim");
+  tl1.to("h1", { y: -50 }, "anim");
 
-  tl1.to(".logo.welcome",{y: -50,},"anim");
+  tl1.to(".logo.welcome", { y: -50 }, "anim");
 
-  tl1.to(".logo.niladri",{y: 0, opacity: 1,},"anim");
+  tl1.to(".logo.niladri", { y: 0, opacity: 1 }, "anim");
 
-  const htmlCssAnim = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-  htmlCssAnim.to(".logo-html", { rotation: 360, duration: 1 });
-  htmlCssAnim.to(".logo-css", { rotation: -360, duration: 1, delay: 0.5 });
+
+  // Skills logos animations
+  const htmlAnim = gsap.timeline({ repeat: -1, repeatDelay: 1.4});
+  htmlAnim.to(".logo-html", { rotation: 360, duration: 1.4});
+
+  const cssAnim = gsap.timeline({ repeat: -1});
+  cssAnim.to(".logo-css", { rotation: -360, duration: 1.4, delay: 1.4 });
 
   const sassAnim = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
   sassAnim.from(".logo-sass", { scale: 0, rotation: -360, duration: 2 });
-  sassAnim.to(".logo-sass", { scale: 0,rotation: -360, duration: 2, delay: 1 });
+  sassAnim.to(".logo-sass", {scale: 0,rotation: -360,duration: 2,delay: 1 });
 
   const jsAnime = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
-  jsAnime.to(".logo-js",{ rotation: 90, duration: 0.8 })
-  jsAnime.to(".logo-js",{ rotation: 180, duration: 0.8 })
-  jsAnime.to(".logo-js",{ rotation: 270, duration: 0.8 })
-  jsAnime.to(".logo-js",{ rotation: 360, duration: 0.8 })
-  
-  const phpAnime = gsap.timeline({ repeat: -1, repeatDelay: 0.8 });
-  phpAnime.from(".logo-php",{ scale:0, duration: 0.8 })
-  phpAnime.to(".logo-php",{ scale:0, duration: 1.3 })
+  jsAnime.to(".logo-js", { rotation: 90, duration: 0.8 });
+  jsAnime.to(".logo-js", { rotation: 180, duration: 0.8 });
+  jsAnime.to(".logo-js", { rotation: 270, duration: 0.8 });
+  jsAnime.to(".logo-js", { rotation: 360, duration: 0.8 });
+
+  const phpAnime = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+  phpAnime.to(".logo-php", { scale: 0, duration: 0.8 });
+  phpAnime.to(".logo-php", { scale: 1, duration: 1.3 });
 
   const mysqlAnime = gsap.timeline({ repeat: -1, repeatDelay: 0.8 });
-  mysqlAnime.to(".logo-mysql",{  rotationY:360, duration: 0.8})
+  mysqlAnime.to(".logo-mysql", { rotationY: 360, duration: 0.8 });
 
-  // const skillLogos = document.querySelector(".skill-logo");
+  const skillLogos = document.querySelectorAll(".skill-logo");
 
-  // function pauseLogoAnimation() {SkillLogos.pause();}
-  // function resumeLogoAnimation() {SkillLogos.resume();}
-
-  // // skillLogos.addEventListener('mouseover',function (){
-  //   // for(let i=0 ; i < skillLogos.length ; i++){
-  //     skillLogos.addEventListener("mouseenter", pauseLogoAnimation);
-  //     skillLogos.addEventListener("mouseleave", resumeLogoAnimation);
-  //   // }
-  // // })
+  // Skills logo play pause
+  if (!isTouchDevice) {
+    for(let i=0 ; i < skillLogos.length ; i++){
+      skillLogos[0].addEventListener("mouseenter", function(){htmlAnim.pause();});
+      skillLogos[0].addEventListener("mouseleave", function(){htmlAnim.resume();});
+      skillLogos[1].addEventListener("mouseenter", function(){cssAnim.pause();});
+      skillLogos[1].addEventListener("mouseleave", function(){cssAnim.resume();});
+      skillLogos[2].addEventListener("mouseenter", function(){sassAnim.pause();});
+      skillLogos[2].addEventListener("mouseleave", function(){sassAnim.resume();});
+      skillLogos[3].addEventListener("mouseenter", function(){jsAnime.pause();});
+      skillLogos[3].addEventListener("mouseleave", function(){jsAnime.resume();});
+      skillLogos[4].addEventListener("mouseenter", function(){phpAnime.pause();});
+      skillLogos[4].addEventListener("mouseleave", function(){phpAnime.resume();});
+      skillLogos[5].addEventListener("mouseenter", function(){mysqlAnime.pause();});
+      skillLogos[5].addEventListener("mouseleave", function(){mysqlAnime.resume();});
+    }
+  }
 });
