@@ -277,39 +277,17 @@ $(document).ready(function () {
     circleElem.addEventListener("mouseleave", resumeAnimation);
   }
 
-  gsap.from(" a.menu-btn", {
-    y: -100,
-    duration: 0.5,
-    delay: 0.3,
-    opacity: 0,
-    stagger: 0.1,
-  });
-
-  if (window.scrollY < 200) {
-    gsap.from(".logo.welcome", {
-      y: -100,
-      duration: 0.5,
-      delay: 0.3,
-      opacity: 0,
-      stagger: 0.1,
-    });
+  const navAnim = () => {
+    return {y: -100, duration: 0.5,delay: 0.3, opacity: 0, stagger: 0.1}
   }
 
-  gsap.from("h1", {
-    x: -200,
-    duration: 1,
-    delay: 0.8,
-    opacity: 0,
-    // stagger: 0.1,
-  });
+  if (window.scrollY < 200) gsap.from(".logo.welcome", navAnim());
+  gsap.from(" a.menu-btn", navAnim());
 
-  gsap.to(".scroll-up-btn", {
-    y: -100,
-    repeat: -1,
-    duration: 0.4,
-    yoyo: true,
-    ease: "power4.out",
-  });
+
+  gsap.from("h1", {x: -200,duration: 1,delay: 0.8,opacity: 0,});
+
+  gsap.to(".scroll-up-btn", {y: -100,repeat: -1,duration: 0.4,yoyo: true,ease: "power4.out",});
 
   //welcome to niladri switch animation in navbar
 
@@ -324,30 +302,11 @@ $(document).ready(function () {
     },
   });
 
-  tl1.to(
-    "h1",
-    {
-      y: -50,
-    },
-    "anim"
-  );
+  tl1.to("h1",{y: -50,},"anim");
 
-  tl1.to(
-    ".logo.welcome",
-    {
-      y: -50,
-    },
-    "anim"
-  );
+  tl1.to(".logo.welcome",{y: -50,},"anim");
 
-  tl1.to(
-    ".logo.niladri",
-    {
-      y: 0,
-      opacity: 1,
-    },
-    "anim"
-  );
+  tl1.to(".logo.niladri",{y: 0,opacity: 1,},"anim");
 
   const skillLogoAnim = gsap.timeline({ repeat: -1, repeatDelay: 1 });
   skillLogoAnim.to(".skill-logo1", { rotation: 360, duration: 1 });
