@@ -263,7 +263,7 @@ section .title::after {
   position: relative;
   display: flex;
   background-color: #111111;
-  /* background: url("../images/hero.jpg") no-repeat center; */
+  background: url("../images/hero.jpg") no-repeat center;
   height: 100svh;
   color: #fff;
   object-fit: cover;
