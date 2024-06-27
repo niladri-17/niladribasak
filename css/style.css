@@ -262,8 +262,8 @@ section .title::after {
 .home {
   position: relative;
   display: flex;
-  background-color: #000;
-  background: url("../images/hero.jpg") no-repeat center;
+  background-color: #0C0C0C;
+  /* background: url("../images/hero.jpg") no-repeat center; */
   height: 100svh;
   color: #fff;
   object-fit: cover;
