@@ -266,7 +266,6 @@ section .title::after {
   background: url("../images/hero.jpg") no-repeat center;
   height: 100svh;
   color: #fff;
-  min-height: 500px;
   object-fit: cover;
   background-size: cover;
   background-position: left;
