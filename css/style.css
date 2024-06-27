@@ -262,7 +262,7 @@ section .title::after {
 .home {
   position: relative;
   display: flex;
-  background: url(./images/hero.jpg) no-repeat center;
+  background: url("../images/hero.jpg") no-repeat center;
   height: 100svh;
   color: #fff;
   min-height: 500px;
