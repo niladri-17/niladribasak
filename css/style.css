@@ -266,6 +266,7 @@ section .title::after {
   height: 100svh;
   color: #fff;
   min-height: 500px;
+  object-fit: cover;
   background-size: cover;
   background-position: left;
   /* background-attachment: fixed; */
