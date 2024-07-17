@@ -127,6 +127,12 @@ $(document).ready(function () {
   const cards = document.querySelectorAll(".services .card");
 
   cards.forEach((card) => {
+
+    const cursor = document.querySelector(".cursor-follower");
+    card.addEventListener("mouseenter", () => {
+      cursor.style.display = "none"; // Hide cursor follower
+    });
+
     card.addEventListener("mousemove", (event) => {
       const rect = card.getBoundingClientRect();
       const cardCenterX = rect.left + rect.width / 2;
@@ -135,8 +141,8 @@ $(document).ready(function () {
       const mouseX = (event.clientX - cardCenterX) / 7;
       const mouseY = (event.clientY - cardCenterY) / 5;
 
-      console.log(mouseX)
-      console.log(mouseY)
+      console.log(mouseX);
+      console.log(mouseY);
 
       gsap.to(card, {
         duration: 0.2,
