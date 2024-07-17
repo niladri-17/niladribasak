@@ -128,9 +128,9 @@ $(document).ready(function () {
   const cursor = document.querySelector(".cursor-follower");
 
   cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      cursor.style.display = "none"; // Hide cursor follower
-    });
+    // card.addEventListener("mouseenter", () => {
+    //   cursor.style.display = "none"; // Hide cursor follower
+    // });
 
     const handleMouseMove = (event) => {
       const rect = card.getBoundingClientRect();
@@ -162,7 +162,7 @@ $(document).ready(function () {
       };
     };
 
-    card.addEventListener("mousemove", throttle(handleMouseMove, 90)); // 16ms throttle for 60fps
+    card.addEventListener("mousemove", throttle(handleMouseMove, 120)); // 16ms throttle for 60fps
 
     card.addEventListener("mouseleave", () => {
       // cursor.style.display = "block"; // Show cursor follower
