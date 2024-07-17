@@ -125,15 +125,14 @@ $(document).ready(function () {
   // 3D card Effect
 
   const cards = document.querySelectorAll(".services .card");
+  const cursor = document.querySelector(".cursor-follower");
 
   cards.forEach((card) => {
-
-    const cursor = document.querySelector(".cursor-follower");
     card.addEventListener("mouseenter", () => {
       cursor.style.display = "none"; // Hide cursor follower
     });
 
-    card.addEventListener("mousemove", (event) => {
+    const handleMouseMove = (event) => {
       const rect = card.getBoundingClientRect();
       const cardCenterX = rect.left + rect.width / 2;
       const cardCenterY = rect.top + rect.height / 2;
@@ -141,18 +140,33 @@ $(document).ready(function () {
       const mouseX = (event.clientX - cardCenterX) / 7;
       const mouseY = (event.clientY - cardCenterY) / 5;
 
-      console.log(mouseX);
-      console.log(mouseY);
-
       gsap.to(card, {
         duration: 0.2,
         rotationY: mouseX,
-        rotationX: mouseY,
+        rotationX: -mouseY, // Corrected axis direction
         ease: "power2.out",
       });
-    });
+    };
+
+    // Throttle function to limit the rate of mousemove events
+    const throttle = (func, limit) => {
+      let inThrottle;
+      return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    };
+
+    card.addEventListener("mousemove", throttle(handleMouseMove, 90)); // 16ms throttle for 60fps
 
     card.addEventListener("mouseleave", () => {
+      // cursor.style.display = "block"; // Show cursor follower
+
       gsap.to(card, {
         duration: 0.2,
         rotationY: 0,
