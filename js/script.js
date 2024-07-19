@@ -1,5 +1,14 @@
 gsap.registerPlugin(ScrollTrigger);
 
+const heroImg = document.getElementById("home");
+const img = new Image();
+
+img.src = "../images/hero.webp"; // Set the source of your large image
+
+img.addEventListener("load", function () {
+  heroImg.style.backgroundImage = "url(" + img.src + ")";
+});
+
 var hoverMouse = function ($el) {
   $el.each(function () {
     var $self = $(this);
@@ -143,7 +152,7 @@ $(document).ready(function () {
       gsap.to(card, {
         duration: 0.2,
         rotationY: mouseX,
-        rotationX: -mouseY, 
+        rotationX: -mouseY,
         ease: "power2.out",
       });
     };

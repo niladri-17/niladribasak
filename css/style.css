@@ -260,11 +260,15 @@ section .title::after {
 
 /* home section styling */
 .home {
+  height: 100svh;
   position: relative;
   display: flex;
   background-color: #111111;
-  background: url("../images/hero.webp") no-repeat center;
-  height: 100svh;
+  
+  /* background: url("../images/hero.webp") no-repeat center; */
+  background-color: black;
+  transition: background-image 0.5s ease-in-out;
+  
   color: #fff;
   object-fit: cover;
   background-size: cover;
