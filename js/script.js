@@ -143,7 +143,7 @@ $(document).ready(function () {
       gsap.to(card, {
         duration: 0.2,
         rotationY: mouseX,
-        rotationX: -mouseY, // Corrected axis direction
+        rotationX: -mouseY, 
         ease: "power2.out",
       });
     };
